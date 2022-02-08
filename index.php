@@ -13,7 +13,9 @@
   <body>
     <?php 
        include './partials/_header.php';
+       include './partials/_carousel.php';
     ?>
+    
     
 
 
