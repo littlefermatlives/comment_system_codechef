@@ -9,38 +9,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        .design{
+            border-radius: 10%;
+            max-height = 100px;
+        }
+        
+    </style>
   </head>
   <body>
     <?php 
        include './partials/_header.php';
-       include './partials/_carousel.php';
        include './partials/_dbconnect.php';
-       echo '<div class = "row mx-2">';
-       $sql2 = "SELECT * FROM `blogs`";
-       $result2 = mysqli_query($conn,$sql2);
-       while($row = mysqli_fetch_assoc($result2)){
-        // echo $row['catid'];
-        $blogid = $row['blog_id'];
-        $userid = $row['user_id'];
-        $blogtitle = $row['blog_title'];
-        $blogdesc = $row['blog_desc'];
-        $sql3 = "SELECT * from `users` where `user_id` = $userid";
-        $result3 = mysqli_query($conn,$sql3);
-        $row3 = mysqli_fetch_assoc($result3);
-        $username = $row3['username'];
-        echo '<div class="container col-md-4 my-3">
-        <div class="jumbotron p-3 p-md-3 text-white rounded bg-dark">
-          <div class="col-md-12 px-0">
-              <h2 class="display-4 font-italic">'.$blogtitle.'</h2>
-              <p class="lead my-3">'.$blogdesc.'</p>
-              <p>Posted By: <b></b>'.$username.'</p>
+       $blogid = $_GET['blogid'];
+       $sql = "SELECT * from `blogs` where `blog_id` = $blogid";
+       $result = mysqli_query($conn,$sql);
+       $row = mysqli_fetch_assoc($result);
+       $bloginfo = $row['blog_info'];
+       $blogtitle = $row['blog_title'];
+       $blogdesc = $row['blog_desc'];
+       echo '<div class="container my-3">
+       <div class="jumbotron p-3 text-white rounded bg-dark">
+         <div class="col-md-12 px-0">
+             <h2 class="display-4 text-center font-italic">'.$blogtitle.'</h2>
+             <p class="lead my-3 text-center">'.$blogdesc.'</p>
+             <p>'.$bloginfo.'</p>
+         </div>
+          <div class ="container-fluid"> 
+          <form class="d-flex">
+          <a href="./partials/_handleupvote.php?blogid='.$blogid.'" class="btn btn-outline-success mx-2"> UpVote</a>
+          <a href="./partials/_handledownvote.php?blogid='.$blogid.'" class="btn btn-outline-success mx-2"> DownVote</a>
+          <button type="button" class="btn btn-outline-success mx-2">Tooltip on right</button>
+           </form>
+
           </div>
-          <a href="/comment_system/blogs.php?blogid='.$blogid.'" class="btn btn-primary"> View Blog</a>
-        </div>
-        </div>';
-        
-      }
-      echo '</div>';
+       </div>
+       </div>';
+      
 
        
 
