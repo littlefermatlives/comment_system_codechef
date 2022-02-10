@@ -1,3 +1,9 @@
 .ht{
      max-height : 450px;
 }
+#bq {
+     min-height: 433px;
+ }
+#bnt{
+     min-height : 10px;
+}

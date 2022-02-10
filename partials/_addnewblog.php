@@ -20,6 +20,10 @@ echo '<div class="modal fade" id="addnewblogModal" tabindex="-1" aria-labelledby
                     <label for="exampleInputPassword1" class="form-label">blog desc</label>
                     <input type="text" class="form-control" id="blogdesc" name = "blogdesc">
                 </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Write your blog here</label>
+                <input type="text" class="form-control" id="bloginfo" name = "bloginfo">
+                </div>
               
                 <button type="submit" class="btn btn-success">Submit</button>
        </form>
