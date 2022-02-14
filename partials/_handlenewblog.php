@@ -10,10 +10,10 @@
             $userid = $_SESSION['userid'];
             $sql = "INSERT INTO `blogs` (`user_id`, `blog_title`, `blog_desc`, `time`,`blog_info`,`Vote`) VALUES ('$userid', '$blogtitle', '$blogdesc', current_timestamp(),'$bloginfo','0')";
             $result = mysqli_query($conn,$sql);
-            header("Location:/comment_system/index.php?addnewblogsucess=true");
+            header("Location:/chefblog.lovestoblog.com/index.php?addnewblogsucess=true");
             exit();
         }else{
-            header("Location:/comment_system/index.php?addnewblogsucess=false");
+            header("Location:/chefblog.lovestoblog.com/index.php?addnewblogsucess=false");
             exit();
 
         }

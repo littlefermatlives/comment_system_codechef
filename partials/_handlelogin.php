@@ -19,7 +19,7 @@
                   $_SESSION['username'] = $username;
                   $_SESSION['userid'] = $row['user_id'];
                 //   ecoh $_SESSION['userid'];
-                  header("Location:/comment_system/index.php?loginsuccess=true");
+                  header("Location:/chefblog.lovestoblog.com/index.php?loginsuccess=true");
                 exit();
                   
              }else{
@@ -31,7 +31,7 @@
             $showerror = "User doesnot exists";
         }
         // echo $showerror;
-        header("Location:/comment_system?loginsuccess=false&error=$showerror");
+        header("Location:/chefblog.lovestoblog.com?loginsuccess=false&error=$showerror");
 
    }
 ?>

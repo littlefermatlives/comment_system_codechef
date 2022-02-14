@@ -15,7 +15,7 @@
     
     $sql = "INSERT INTO `voted_users` (`blog_id`, `user_id`, `time`) VALUES ($blogid, $user_id,current_timestamp())";
     $result = mysqli_query($conn,$sql);
-    header("Location:/comment_system/blogs.php?blogid=$blogid");
+    header("Location:/chefblog.lovestoblog.com/blogs.php?blogid=$blogid");
     exit();
   
 }
